@@ -6,7 +6,7 @@ const Movie = ({ id, year, title, summary, poster, genres }) => {
     <Container>
       <div className="movie__detail">
         {/* Detail component로 넘어가기 */}
-        <Link
+        <StyledLink
           to={{
             pathname: `/movie/${id}`,
             state: {
@@ -17,18 +17,19 @@ const Movie = ({ id, year, title, summary, poster, genres }) => {
               genres,
             },
           }}
-        />
-      </div>
-      <Img src={poster} alt={title} title={title} />
-      <div className="movie__data">
-        <Title>{title}</Title>
-        <Year>{year}</Year>
-        <Genres>
-          {genres.map((genre, index) => (
-            <GenreLi key={index}>{genre}</GenreLi>
-          ))}
-        </Genres>
-        <p className="movie_summary">{summary.slice(0, 180)}...</p>
+        >
+          <Img src={poster} alt={title} title={title} />
+          <div className="movie__data">
+            <Title>{title}</Title>
+            <Year>{year}</Year>
+            <Genres>
+              {genres.map((genre, index) => (
+                <GenreLi key={index}>{genre}</GenreLi>
+              ))}
+            </Genres>
+            <p className="movie_summary">{summary.slice(0, 180)}...</p>
+          </div>
+        </StyledLink>
       </div>
     </Container>
   );
@@ -43,6 +44,7 @@ const Container = styled.div`
   color: #adaeb9;
   box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
     0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+  text-decoration: none !important;
 `;
 
 const Title = styled.h3`
@@ -80,6 +82,10 @@ const Genres = styled.ul`
 const GenreLi = styled.li`
   margin-right: 10px;
   font-size: 14px;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
 `;
 
 export default Movie;
