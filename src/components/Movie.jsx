@@ -1,8 +1,24 @@
+import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
 const Movie = ({ id, year, title, summary, poster, genres }) => {
   return (
     <Container>
+      <div className="movie__detail">
+        {/* Detail component로 넘어가기 */}
+        <Link
+          to={{
+            pathname: `/movie/${id}`,
+            state: {
+              year,
+              title,
+              summary,
+              poster,
+              genres,
+            },
+          }}
+        />
+      </div>
       <Img src={poster} alt={title} title={title} />
       <div className="movie__data">
         <Title>{title}</Title>
