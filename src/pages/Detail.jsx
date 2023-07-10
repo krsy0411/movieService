@@ -2,19 +2,11 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 function Detail() {
-  const { location, history } = useLocation();
+  // 현 url의 정보들을 가져옴 : react-router-dom의 새로운 버전의 방식
+  const location = useLocation();
+
   console.log(location);
-
-  useEffect(() => {
-    if (location.state === undefined) {
-      history.push("/");
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  return (
-    <div>{location.state ? <span>{location.state.title}</span> : null}</div>
-  );
+  return <span>Hello!</span>;
 }
 
 export default Detail;
