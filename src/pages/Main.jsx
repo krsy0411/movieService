@@ -70,4 +70,9 @@ const Movies = styled.div`
   padding: 50px;
   width: 80%;
   padding-top: 70px;
+
+  @media screen and (max-width: 1090px) {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
 `;
