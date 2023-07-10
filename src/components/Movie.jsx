@@ -7,15 +7,14 @@ const Movie = ({ id, year, title, summary, poster, genres }) => {
       <div className="movie__detail">
         {/* Detail component로 넘어가기 */}
         <StyledLink
-          to={{
-            pathname: `/movie/${id}`,
-            state: {
-              year,
-              title,
-              summary,
-              poster,
-              genres,
-            },
+          // v6부터는 과거: pathname -> 현재: to, 그리고 state를 분리해서 작성
+          to={`/movie/${id}`}
+          state={{
+            year,
+            title,
+            summary,
+            poster,
+            genres,
           }}
         >
           <Img src={poster} alt={title} title={title} />
